@@ -44,7 +44,11 @@
 
 - Cosine similarity is used to measure semantic closeness between sentences
 
-  ## Day 2
+
+
+## Day 2
+
+
 
 ## RAG Testing Failures (Urdu QA Dataset)
 1. Incorrect Chunking (Main Issue)
