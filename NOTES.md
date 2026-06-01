@@ -3,47 +3,47 @@
 ---
 
 
-\## Day 1
+## Day 1
 
 
 
-\### Setup Status
+### Setup Status
 
-\- Successfully created Python virtual environment
+- Successfully created Python virtual environment
 
-\- Installed required libraries: langchain, faiss-cpu, sentence-transformers, pymupdf
+- Installed required libraries: langchain, faiss-cpu, sentence-transformers, pymupdf
 
-\- Git repository initialized and connected to GitHub
-
-
-
-\### Observations
-
-\- SentenceTransformer model loaded without errors
-
-\- Urdu sentences successfully encoded into embeddings
-
-\- Cosine similarity test executed successfully
+- Git repository initialized and connected to GitHub
 
 
 
-\### Notes (Important)
+### Observations
 
-\- No major errors encountered during setup
+- SentenceTransformer model loaded without errors
 
-\- Installation process was smooth
+- Urdu sentences successfully encoded into embeddings
 
-\- Urdu text is being processed correctly by the embedding model
+- Cosine similarity test executed successfully
 
 
 
-\### Learning
+### Notes (Important)
 
-\- Virtual environments help isolate project dependencies
+- No major errors encountered during setup
 
-\- Embeddings convert sentences into numerical vectors
+- Installation process was smooth
 
-\- Cosine similarity is used to measure semantic closeness between sentences
+- Urdu text is being processed correctly by the embedding model
+
+
+
+### Learning
+
+- Virtual environments help isolate project dependencies
+
+- Embeddings convert sentences into numerical vectors
+
+- Cosine similarity is used to measure semantic closeness between sentences
 
 
 
@@ -139,3 +139,26 @@ Day 1 taught me *how embeddings work.*
 Day 2 helped me understand *why embeddings matter in a real AI system.*
 
 That feels like an actual step forward.
+
+## Retrieval Baseline
+
+## What works
+- FAISS index built from 50 Urdu Q&A pairs.
+- Retrieval returns correct answer for questions like "پاکستان کا دارالحکومت کیا ہے؟" (top‑1 distance ~2.96).
+- Observed that exact question rewrites get lowest distance; unrelated questions get high distance.
+
+## How to run
+1. Install requirements: `pip install faiss-cpu sentence-transformers`
+2. Run indexing: `python faiss_indexing.py`
+3. Run queries: `python retrieve.py`
+
+## Paper reading (RAG, Lewis et al. 2020)
+- RAG combines a dense retriever (DPR) with a BART generator.
+- Retriever finds top‑k passages; generator produces answer grounded in them.
+- This improves factual accuracy and reduces hallucination.
+
+## Chunking strategy
+Used fixed Q&A pairs (each chunk = question + answer). This is optimal for Q&A but not for long documents. Later experiments will test variable chunk sizes (256, 512, 1024) on paragraphs.
+
+## Next step
+Day 3: Add LLM (Groq or local Ollama) to generate natural answers from retrieved chunks.
