@@ -1,71 +1,46 @@
-# FAILURES.md – Urdu RAG Project
+\# FAILURES.md – Urdu RAG Project
 
 
 
-## Day 1
+\## Day 1
 
 
 
-### Setup Status
+\### Setup Status
 
-- Successfully created Python virtual environment
+\- Successfully created Python virtual environment
 
-- Installed required libraries: langchain, faiss-cpu, sentence-transformers, pymupdf
+\- Installed required libraries: langchain, faiss-cpu, sentence-transformers, pymupdf
 
-- Git repository initialized and connected to GitHub
-
-
-
-### Observations
-
-- SentenceTransformer model loaded without errors
-
-- Urdu sentences successfully encoded into embeddings
-
-- Cosine similarity test executed successfully
+\- Git repository initialized and connected to GitHub
 
 
 
-### Notes (Important)
+\### Observations
 
-- No major errors encountered during setup
+\- SentenceTransformer model loaded without errors
 
-- Installation process was smooth
+\- Urdu sentences successfully encoded into embeddings
 
-- Urdu text is being processed correctly by the embedding model
-
-
-
-### Learning
-
-- Virtual environments help isolate project dependencies
-
-- Embeddings convert sentences into numerical vectors
-
-- Cosine similarity is used to measure semantic closeness between sentences
+\- Cosine similarity test executed successfully
 
 
 
-## Day 2
+\### Notes (Important)
+
+\- No major errors encountered during setup
+
+\- Installation process was smooth
+
+\- Urdu text is being processed correctly by the embedding model
 
 
 
-## RAG Testing Failures (Urdu QA Dataset)
-1. Incorrect Chunking (Main Issue)
-Data was split into sentences instead of full Q–A pairs.
-This broke semantic meaning and context.
+\### Learning
 
-Result: retriever matched “similar questions” instead of correct Q→A mapping.
+\- Virtual environments help isolate project dependencies
 
-3. Dense Embeddings Overlapping for Short Urdu Facts
-Short Urdu factual questions have very similar structure.
-Embedding model failed to distinguish between different facts.
+\- Embeddings convert sentences into numerical vectors
 
-Result: many candidates had nearly identical distances.
-
-5. No Hybrid Retrieval (Dense Only System)
-System relied only on vector similarity.
-No keyword-based matching to enforce exact question signals.
-
-Result: semantically similar but incorrect answers ranked high.
+\- Cosine similarity is used to measure semantic closeness between sentences
 
